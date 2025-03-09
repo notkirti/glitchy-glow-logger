@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -23,6 +24,8 @@ export default {
 				courier: ['"Courier Prime"', 'monospace'],
 				bubblegum: ['"Bubblegum Sans"', 'cursive'],
 				comicsans: ['"Comic Neue"', 'cursive'],
+				montserrat: ['Montserrat', 'sans-serif'],
+				poppins: ['Poppins', 'sans-serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
