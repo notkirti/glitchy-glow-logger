@@ -49,21 +49,21 @@ const Index = () => {
           title="Calories Burned"
           value={mockStats.totalCaloriesBurned}
           icon={<Flame className="w-5 h-5 text-neon-cyan" />}
-          color="cyan"
+          color="blue"  
           delay={2}
         />
         <StatCard 
           title="Avg. Duration"
           value={`${mockStats.averageWorkoutDuration} min`}
           icon={<Clock className="w-5 h-5 text-neon-purple" />}
-          color="purple"
+          color="lilac"  
           delay={3}
         />
         <StatCard 
           title="Workout Streak"
           value={`${mockStats.workoutStreak} days`}
           icon={<Calendar className="w-5 h-5 text-neon-green" />}
-          color="green"
+          color="mint"  
           delay={4}
         />
       </div>
@@ -76,7 +76,7 @@ const Index = () => {
         />
         <ChartPlaceholder 
           title="Nutrition Breakdown" 
-          color="cyan" 
+          color="blue"  
           delay={6}
         />
       </div>
