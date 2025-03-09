@@ -76,6 +76,41 @@
   }
 }
 
+@layer components {
+  .glowing-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1.5rem;
+    overflow: hidden;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 500;
+    color: white;
+    border-radius: 0.375rem;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    background: linear-gradient(135deg, #ff00ff, #00ffff);
+  }
+
+  .glowing-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 0.375rem;
+    opacity: 0;
+    transition-property: opacity;
+    transition-duration: 300ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    background: linear-gradient(135deg, #ff00ff, #00ffff);
+    filter: blur(20px);
+  }
+
+  /* Using a class selector for the hover state instead of group-hover */
+  .glowing-btn:hover::before {
+    opacity: 0.5;
+  }
+}
+
 @layer utilities {
   .glassmorphism {
     @apply bg-cyber-black/70 backdrop-blur-[10px] border border-white/10;
@@ -123,27 +158,6 @@
     content: '';
     @apply absolute inset-0 bg-neon-gradient opacity-5;
   }
-
-  .glowing-btn {
-    @apply relative inline-flex items-center justify-center px-6 py-2 overflow-hidden font-orbitron font-medium text-white rounded-md shadow-lg;
-    background: linear-gradient(135deg, #ff00ff, #00ffff);
-  }
-
-  .glowing-btn::before {
-    content: '';
-    @apply absolute inset-0 rounded-md blur opacity-0 transition-opacity duration-300 ease-in-out;
-    background: linear-gradient(135deg, #ff00ff, #00ffff);
-    filter: blur(20px);
-  }
-}
-
-/* Add the group class separately */
-.glowing-btn {
-  @apply group;
-}
-
-.glowing-btn::before {
-  @apply group-hover:opacity-50;
 }
 
 #root {
