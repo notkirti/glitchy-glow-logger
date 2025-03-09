@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -22,6 +21,8 @@ export default {
 			fontFamily: {
 				orbitron: ['Orbitron', 'sans-serif'],
 				courier: ['"Courier Prime"', 'monospace'],
+				bubblegum: ['"Bubblegum Sans"', 'cursive'],
+				comicsans: ['"Comic Neue"', 'cursive'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
@@ -29,12 +30,15 @@ export default {
 				ring: 'hsl(var(--ring))',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
-				neon: {
-					pink: '#ff00ff',
-					cyan: '#00ffff',
-					purple: '#9900ff',
-					green: '#00ff66',
-					yellow: '#ffff00',
+				pastel: {
+					pink: '#FFC0CB',
+					lavender: '#E6E6FA',
+					mint: '#C1F0C1',
+					yellow: '#FFFACD',
+					blue: '#ADD8E6',
+					peach: '#FFDAB9',
+					lilac: '#DCD0FF',
+					rose: '#FFD1DC',
 				},
 				cyber: {
 					black: '#0a0a0a',
@@ -144,6 +148,8 @@ export default {
 				'counter': 'counter 2s forwards'
 			},
 			boxShadow: {
+				pastel: '0 4px 12px rgba(255, 182, 193, 0.3)',
+				bubble: '0 8px 20px rgba(255, 182, 193, 0.25)',
 				'neon-pink': '0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 15px #ff00ff',
 				'neon-cyan': '0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 15px #00ffff',
 				'neon-purple': '0 0 5px #9900ff, 0 0 10px #9900ff, 0 0 15px #9900ff',
@@ -151,7 +157,8 @@ export default {
 				'neon-glow': '0 0 5px rgba(255, 0, 255, 0.7), 0 0 10px rgba(0, 255, 255, 0.5)',
 			},
 			backgroundImage: {
-				'cyber-grid': 'linear-gradient(rgba(0, 255, 255, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 255, 255, 0.1) 1px, transparent 1px)',
+				'pastel-gradient': 'linear-gradient(135deg, #FFC0CB, #E6E6FA)',
+				'bubble-pattern': "url(\"data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffb6c1' fill-opacity='0.1' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E\")",
 				'neon-gradient': 'linear-gradient(135deg, #ff00ff, #00ffff)',
 				'radial-glow': 'radial-gradient(circle, rgba(255, 0, 255, 0.1) 0%, rgba(10, 10, 10, 0) 70%)',
 			},

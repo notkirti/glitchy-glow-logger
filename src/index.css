@@ -1,6 +1,8 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -8,41 +10,41 @@
 
 @layer base {
   :root {
-    --background: 0 0% 4%;
-    --foreground: 0 0% 98%;
+    --background: 330 100% 98%;
+    --foreground: 330 80% 35%;
 
-    --card: 0 0% 7%;
-    --card-foreground: 0 0% 98%;
+    --card: 330 100% 95%;
+    --card-foreground: 330 80% 40%;
 
-    --popover: 0 0% 5%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 330 100% 98%;
+    --popover-foreground: 330 80% 35%;
 
-    --primary: 300 100% 50%;
+    --primary: 328 85% 70%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 180 100% 50%;
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 230 80% 85%;
+    --secondary-foreground: 230 80% 30%;
 
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
+    --muted: 330 30% 90%;
+    --muted-foreground: 330 30% 40%;
 
-    --accent: 240 3.7% 15.9%;
-    --accent-foreground: 0 0% 98%;
+    --accent: 270 80% 85%;
+    --accent-foreground: 270 80% 30%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 300 100% 50%;
-    --input: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
+    --border: 328 85% 85%;
+    --input: 330 30% 90%;
+    --ring: 330 85% 75%;
 
-    --radius: 0.75rem;
+    --radius: 1.5rem;
   }
 }
 
 @layer base {
   * {
-    @apply border-border selection:bg-neon-pink/20 selection:text-white;
+    @apply border-border selection:bg-pastel-pink/30 selection:text-foreground;
   }
   
   html {
@@ -50,13 +52,13 @@
   }
 
   body {
-    @apply bg-cyber-black text-white font-courier antialiased overflow-x-hidden;
-    background-size: 50px 50px;
-    background-image: radial-gradient(rgba(255, 0, 255, 0.05) 1px, transparent 0);
+    @apply bg-pastel-lavender/30 text-foreground font-comicsans antialiased overflow-x-hidden;
+    background-size: 20px 20px;
+    background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffb6c1' fill-opacity='0.1' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E");
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-orbitron text-white;
+    @apply font-bubblegum text-primary;
   }
 
   a {
@@ -68,95 +70,74 @@
   }
 
   input, textarea, select {
-    @apply bg-cyber-dark border border-neon-pink/30 focus:border-neon-pink outline-none rounded-md p-2 text-white;
+    @apply bg-white border border-pastel-pink/70 focus:border-pastel-pink outline-none rounded-full p-2 text-foreground shadow-pastel;
   }
 
   button {
-    @apply font-orbitron;
+    @apply font-bubblegum;
   }
 }
 
 @layer components {
-  .glowing-btn {
+  .cute-btn {
     position: relative;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     padding: 0.5rem 1.5rem;
     overflow: hidden;
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Bubblegum Sans', cursive;
     font-weight: 500;
     color: white;
-    border-radius: 0.375rem;
-    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-    background: linear-gradient(135deg, #ff00ff, #00ffff);
+    border-radius: 1.5rem;
+    box-shadow: 0 6px 0 rgba(221, 114, 158, 0.8), 0 8px 15px rgba(221, 114, 158, 0.3);
+    background: linear-gradient(135deg, #FFC0CB, #ffb6c1);
+    transform: translateY(0);
+    transition: transform 0.2s, box-shadow 0.2s;
   }
 
-  .glowing-btn::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: 0.375rem;
-    opacity: 0;
-    transition-property: opacity;
-    transition-duration: 300ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    background: linear-gradient(135deg, #ff00ff, #00ffff);
-    filter: blur(20px);
+  .cute-btn:hover {
+    transform: translateY(2px);
+    box-shadow: 0 4px 0 rgba(221, 114, 158, 0.8), 0 6px 10px rgba(221, 114, 158, 0.3);
   }
 
-  /* Using a class selector for the hover state instead of group-hover */
-  .glowing-btn:hover::before {
-    opacity: 0.5;
+  .cute-btn:active {
+    transform: translateY(4px);
+    box-shadow: 0 2px 0 rgba(221, 114, 158, 0.8), 0 3px 6px rgba(221, 114, 158, 0.3);
   }
 }
 
 @layer utilities {
   .glassmorphism {
-    @apply bg-cyber-black/70 backdrop-blur-[10px] border border-white/10;
+    @apply bg-white/70 backdrop-blur-[10px] border border-pastel-pink/20 shadow-pastel;
   }
   
-  .neon-text-pink {
-    @apply text-white;
-    text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 15px #ff00ff;
+  .cute-text-pink {
+    @apply text-primary font-bubblegum;
+    text-shadow: 0 2px 4px rgba(255, 182, 193, 0.5);
   }
   
-  .neon-text-cyan {
-    @apply text-white;
-    text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 15px #00ffff;
+  .cute-text-blue {
+    @apply text-pastel-blue font-bubblegum;
+    text-shadow: 0 2px 4px rgba(173, 216, 230, 0.5);
   }
 
-  .neon-border {
-    @apply border-2 border-transparent relative;
-  }
-
-  .neon-border::before {
-    content: '';
-    @apply absolute inset-0 rounded-md border-2 border-neon-pink;
-    box-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff;
-    animation: pulse-neon 2s infinite;
+  .cute-border {
+    @apply border-2 border-pastel-pink rounded-2xl;
+    box-shadow: 0 4px 12px rgba(255, 182, 193, 0.3);
   }
 
   .gradient-text {
-    @apply font-orbitron font-bold text-transparent bg-clip-text bg-neon-gradient;
+    @apply font-bubblegum font-bold text-transparent bg-clip-text bg-pastel-gradient;
   }
 
-  .scanline {
-    @apply pointer-events-none fixed inset-0 z-50 overflow-hidden opacity-10;
+  .cute-box {
+    @apply bg-white border-2 border-pastel-pink/50 rounded-3xl p-5 relative overflow-hidden shadow-pastel;
   }
-  
-  .scanline::before {
+
+  .cute-box::before {
     content: '';
-    @apply absolute inset-0 bg-gradient-to-b from-transparent via-white to-transparent opacity-30 h-[10px] w-full animate-scanline;
-  }
-
-  .cyber-box {
-    @apply bg-cyber-dark border border-neon-cyan/30 rounded-lg p-5 relative overflow-hidden;
-  }
-
-  .cyber-box::before {
-    content: '';
-    @apply absolute inset-0 bg-neon-gradient opacity-5;
+    @apply absolute inset-0 bg-pastel-gradient opacity-5 rounded-3xl;
   }
 }
 
