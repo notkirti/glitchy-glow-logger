@@ -125,16 +125,25 @@
   }
 
   .glowing-btn {
-    @apply relative inline-flex items-center justify-center px-6 py-2 overflow-hidden font-orbitron font-medium text-white rounded-md shadow-lg group;
+    @apply relative inline-flex items-center justify-center px-6 py-2 overflow-hidden font-orbitron font-medium text-white rounded-md shadow-lg;
     background: linear-gradient(135deg, #ff00ff, #00ffff);
   }
 
   .glowing-btn::before {
     content: '';
-    @apply absolute inset-0 rounded-md blur opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-50;
+    @apply absolute inset-0 rounded-md blur opacity-0 transition-opacity duration-300 ease-in-out;
     background: linear-gradient(135deg, #ff00ff, #00ffff);
     filter: blur(20px);
   }
+}
+
+/* Add the group class separately */
+.glowing-btn {
+  @apply group;
+}
+
+.glowing-btn::before {
+  @apply group-hover:opacity-50;
 }
 
 #root {
